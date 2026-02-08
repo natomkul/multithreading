@@ -29,10 +29,6 @@ void feast(int n)
         chopstick* right = chopsticks[(i + 1) %n].get();
         philosophers.push_back(std::make_unique<philosopher>(i, left, right));
     }
-    
-     printf("0 %d \n", philosophers[0] -> get_id());
-     printf("2 %d \n", philosophers[2] -> get_id());
-     printf("4 %d \n", philosophers[4] -> get_id());
 }
 
 int main() 

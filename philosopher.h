@@ -17,6 +17,7 @@ private:
 
 public:
      philosopher(int id, chopstick* l, chopstick* r);
+     ~philosopher();
      void hungry();
      void eating();
      void thinks();
