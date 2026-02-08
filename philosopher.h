@@ -16,7 +16,7 @@ private:
      std::thread phi;
 
 public:
-     philosopher(int id_p, chopstick* left, chopstick* right);
+     philosopher(int id, chopstick* l, chopstick* r);
      void hungry();
      void eating();
      void thinks();

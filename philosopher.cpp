@@ -5,7 +5,8 @@
 #include <mutex>
 #include <chrono>
 
-philosopher::philosopher(int id_p, chopstick* left, chopstick* right) {}
+philosopher::philosopher(int id, chopstick* l, chopstick* r) 
+    : id_p(id), left(l), right(r) {}
 
 void philosopher::hungry()
 {

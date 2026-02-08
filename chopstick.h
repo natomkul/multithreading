@@ -12,7 +12,7 @@ private:
      int id_c;
 
 public:
-     chopstick(int id_c);
+     chopstick(int id);
      bool try_get();
      void relase();
 };

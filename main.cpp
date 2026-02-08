@@ -30,9 +30,9 @@ void feast(int n)
         philosophers.push_back(std::make_unique<philosopher>(i, left, right));
     }
     
-     std::cout << philosophers[0] -> get_id() << "\n";
-     std::cout << philosophers[2] -> get_id() << "\n";
-     std::cout << philosophers[4] -> get_id() << "\n";
+     printf("0 %d \n", philosophers[0] -> get_id());
+     printf("2 %d \n", philosophers[2] -> get_id());
+     printf("4 %d \n", philosophers[4] -> get_id());
 }
 
 int main() 
