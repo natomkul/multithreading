@@ -22,45 +22,37 @@ void philosopher::hungry()
 
     std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
-        if ((get_id() % 2) == 0)
-        {
-            if (left->try_get())
-            {
-                if (right->try_get())
-                {
-                    return;
-                } else
-                {
-                    left->relase();
-                    hungry();
-                }
-        
-            } else
-            {
-                hungry();
-            }
-        }
-
-        if ((get_id() % 2) == 1)
+    if ((get_id() % 2) == 0)
+    {
+        if (left->try_get())
         {
             if (right->try_get())
             {
-                if (left->try_get())
-                {
-                    return;
-                } else
-                {
-                    right->relase();
-                    hungry();
-                }
-        
-            } else
-            {
+                return;
+            } else {
+                left->relase();
                 hungry();
             }
+        } else {
+            hungry();
         }
+    }
 
-
+    if ((get_id() % 2) == 1)
+    {
+        if (right->try_get())
+        {
+            if (left->try_get())
+            {
+                return;
+            } else {
+                right->relase();
+                hungry();
+            }
+        } else {
+            hungry();
+        }
+    }
 }
 
 void philosopher::eating()

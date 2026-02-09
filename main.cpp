@@ -1,33 +1,28 @@
-#include <iostream>
 #include "chopstick.h"
 #include "philosopher.h"
 #include <iostream>
-#include <iostream>
 #include <thread>
 #include <mutex>
 #include <chrono>
-#include <thread>
-#include <mutex>
-#include <chrono>
-#include <vector>
+#include <deque>
 #include <memory>
 
 void feast(int n)
 {
-     std::vector<std::unique_ptr<chopstick>> chopsticks;
+    std::deque<chopstick> chopsticks;
     
     for (int i = 0; i < n; i++)
     {
-        chopsticks.push_back(std::make_unique<chopstick>(i));
+        chopsticks.emplace_back(i);
     }
 
-     std::vector<std::unique_ptr<philosopher>> philosophers;
+    std::deque<philosopher> philosophers;
 
     for (int i = 0; i < n; i++)
     {
-        chopstick* left = chopsticks[i].get();
-        chopstick* right = chopsticks[(i + 1) %n].get();
-        philosophers.push_back(std::make_unique<philosopher>(i, left, right));
+        chopstick* left = &chopsticks[i];
+        chopstick* right = &chopsticks[(i + 1) %n];
+        philosophers.emplace_back(i, left, right);
     }
 }
 
