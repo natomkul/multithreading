@@ -23,7 +23,7 @@ void philosopher::hungry()
 {
     printf("%d: Philosopher is HUNGRY\n", get_id());
 
-    std::this_thread::sleep_for(std::chrono::seconds(5));
+    std::this_thread::sleep_for(std::chrono::seconds(3));
 
     low->block();
     high->block();
@@ -33,7 +33,7 @@ void philosopher::eating()
 {
     printf("%d: Philosopher is EATING\n", get_id());
 
-    std::this_thread::sleep_for(std::chrono::seconds(5));
+    std::this_thread::sleep_for(std::chrono::seconds(3));
 
     high->relase();
     low->relase();
@@ -43,7 +43,7 @@ void philosopher::thinks()
 {
     printf("%d: Philosopher is THINKING\n", get_id());
 
-    std::this_thread::sleep_for(std::chrono::seconds(5));
+    std::this_thread::sleep_for(std::chrono::seconds(3));
 }
 
 void philosopher::proc()

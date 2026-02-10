@@ -13,8 +13,8 @@ private:
 
 public:
      chopstick(int id);
-     void block();
-     void relase();
+     virtual void block();
+     virtual void relase();
      int get_id();
 };
 
