@@ -4,16 +4,15 @@
 #include <mutex>
 #include <chrono>
 #include <atomic>
-#include "book.h"
+#include "wrapper.h"
 
 class Writer
 {
  private:
     std::thread wr;
 
-    void run(Book *bn);
+    void run(Wrapper *bw);
  public:
-    Writer(Book *bn);
+    Writer(Wrapper *bw);
     ~Writer();
-    void write(Book *bn);
 };

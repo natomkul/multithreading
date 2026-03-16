@@ -5,13 +5,15 @@
 #include <vector>
 #include <cstdlib>
 #include "book.h"
+#include "wrapper.h"
 #include "reader.h"
 #include "writer.h"
 
 int main()
 {
     srand(time(NULL));
-    Book *bk = new Book("test.txt");
-    Writer w(bk);
-    Reader r(bk);
+    Book *bn = new Book("test.txt");
+    Wrapper *wp = new Wrapper(bn);
+    Reader r(wp);
+    Writer w(wp);
 }

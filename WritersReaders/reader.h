@@ -4,16 +4,15 @@
 #include <vector>
 #include <thread>
 #include <cstdlib>
-#include "book.h"
+#include "wrapper.h"
 
 class Reader
 {
  private:
     std::thread rd;
 
-    void run(Book *bn);
+    void run(Wrapper *bw);
  public:
-    Reader(Book *bn);
+    Reader(Wrapper *bw);
     ~Reader();
-    void read(Book *bn);
 };
